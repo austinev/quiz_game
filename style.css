@@ -1,0 +1,26 @@
+#time_remaining{
+    size:5px;
+    color:grey;
+
+
+}
+
+#hi_scores{
+    size:5px;
+    color:grey;
+
+}
+
+#boundary_box{
+    width: 500px;
+    text-align:center;
+
+}
+
+#start_button{
+    background-color:purple;
+    color:white;
+    /* height:20px;
+    size 5px; */
+
+}
