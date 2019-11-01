@@ -16,11 +16,28 @@
     text-align:center;
 
 }
+.question{
+    text-align:left;
+}
 
+.question_button{
+    background-color:purple;
+    color:white;
+    display:block;
+
+}
 #start_button{
     background-color:purple;
     color:white;
     /* height:20px;
     size 5px; */
 
+}
+
+.answer_hide{
+    visibility: hidden;
+}
+
+.answer_show{
+    visibility:show;
 }
