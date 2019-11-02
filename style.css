@@ -29,10 +29,7 @@
 #start_button{
     background-color:purple;
     color:white;
-    /* height:20px;
-    size 5px; */
-
-}
+   }
 
 .answer_hide{
     visibility: hidden;
