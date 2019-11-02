@@ -5,6 +5,26 @@
 
 }
 
+
+
+table, th, td {
+    border: 1px solid white;
+    width:100%;
+  }
+
+
+#hi_scores_table{
+    background: rgb(224, 221, 221);
+    color:black;
+    width:100%;
+    text-align:left;
+
+}
+.result{
+font-style: italic;
+float:left;
+}
+
 #hi_scores{
     size:5px;
     color:grey;
