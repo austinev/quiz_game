@@ -10,7 +10,9 @@
 table, th, td {
     border: 1px solid white;
     width:100%;
+    margin:20px;
   }
+
 
 
 #hi_scores_table{
@@ -44,11 +46,34 @@ float:left;
     background-color:purple;
     color:white;
     display:block;
+    height: 20px;
+    margin-bottom: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    position:relative;
+    
 
 }
 #start_button{
     background-color:purple;
     color:white;
+    
+   }
+
+#initials_form{
+    float:left;
+    flex-flow:nowrap;
+
+}
+#text_box{
+    width:50px;
+}
+
+   #score_button{
+    background-color:purple;
+    color:white;
+    float:left;
+    margin-right:20px;
    }
 
 .answer_hide{
@@ -57,4 +82,8 @@ float:left;
 
 .answer_show{
     visibility:show;
+}
+.submit_button{
+
+    padding-bottom: 25px;
 }
