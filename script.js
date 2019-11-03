@@ -18,7 +18,7 @@ var answer1_El = document.getElementById("answer1");
 
 const game_length = 75;
 
-var score = game_length;
+var score = 0;
 var q = 0;
 var running = false; //if the timer is running decrement the score.
 var showing_result = 0;
@@ -145,6 +145,7 @@ function add_score_v2() {
 function draw_score_page() {
   //draw the scores, add a clear button and a new game button
   //first grab an array of the existing, old scores:
+  running=false;
   var my_array_of_scores = [];
   for (var i = 0; i < localStorage.length; i++) {
     var temp_thing = localStorage.key(i);
