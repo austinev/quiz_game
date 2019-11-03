@@ -11,8 +11,6 @@
 // Your application should also be responsive, ensuring that it adapts to multiple screen sizes.
 // Refer to the animated GIF below for a demonstration of the application functionality.
 
-
-
 var high_scores_El = document.getElementById("hi_scores");
 var time_remaining_El = document.getElementById("time_remaining");
 var content_box_El = document.getElementById("boundary_box");
@@ -155,21 +153,19 @@ function draw_score_page() {
     my_array_of_scores.push(localStorage.getItem(localStorage.key(i)));
   }
 
+  my_array_of_scores = sort_array(my_array_of_scores, [], 16); //sort the scores
   $("#boundary_box").empty();
 
   //build up the table.
   var my_table = $("<table></table>"); // table, then <tr> then <td>
 
   for (i = 0; i < my_array_of_scores.length; i = i + 2) {
+    // console.log("buildingtable: first item"+my_array_of_scores[i]);
+    // console.log("buildingtable: second item"+my_array_of_scores[i+1]);
     var my_row = $("<tr></tr>");
     var my_data = $('<td id="hi_scores_table"></td>');
     $(my_data).text(
-      i / 2 +
-        1 +
-        ": " +
-        my_array_of_scores[i] +
-        "- " +
-        my_array_of_scores[i + 1]
+      i / 2 + 1 + ": " + my_array_of_scores[i] + " " + my_array_of_scores[i + 1]
     );
     my_row.append(my_data);
     my_table.append(my_row);
@@ -209,14 +205,48 @@ function initialize_game() {
   $("#boundary_box").append(new_thing);
 }
 
-function sort_array(my_array) {
+function sort_array(in_array, out_array, index) {
   //take an array wich is a list of initials,score pairs and sort them from highest to lowest, return that sorted array.
-  // var pair
-  // for (var i=0;i<my_array.length-1;i=i+2){
+  var my_key;
+  var my_score;
+  var high_key;
+  var high_score;
+  var position = 0;
+  
+  index--; //just to keep it from running forever
+  if (index === 0) {
+    alert("infinate loop averted");
+    return;
+  }
+  if (in_array.length===0) {
+    return in_array, out_array; 
+  } else {
+    high_key = in_array[0];
+    high_score = parseInt(in_array[1]);
+    for (var i = 0; i < in_array.length; i = i + 2) {
+      my_key = in_array[i];
+      my_score = parseInt(in_array[i + 1]);
+     
+      if (my_score > high_score) {
+        
+        high_score = my_score;
+        high_key = my_key;
+        position = i;
+      }
+    }
+    in_array.splice(position, 2);
+    
+    out_array.push(high_key, high_score);
+    if (in_array.length === 0) {
+      console.log("empty array detected");
+      return [], out_array;
+    } else {
+      //console.log("Running again with this as the input: "+in_array);
+      return sort_array(in_array, out_array, index);
 
-  // }
-
-  return my_array; //for now just return the unsorted list
+      
+    }
+  }
 }
 
 function clear_high_scores() {
